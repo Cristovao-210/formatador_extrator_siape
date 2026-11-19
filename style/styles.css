@@ -1,0 +1,47 @@
+:root {
+  --app-blue: #173b63;
+  --app-blue-dark: #102b49;
+  --app-bg: #f4f7fb;
+}
+body { background: var(--app-bg); color: #243247; min-height: 100vh; }
+.app-navbar { background: linear-gradient(110deg, var(--app-blue-dark), var(--app-blue)); }
+.brand-mark {
+  display: inline-grid; place-items: center; width: 30px; height: 30px;
+  margin-right: 7px; border-radius: 9px; color: var(--app-blue);
+  background: #fff; font-weight: 800;
+}
+.card { border-radius: 14px; }
+.eyebrow { color: #52769b; font-size: .69rem; font-weight: 800; letter-spacing: .12em; }
+.step-number {
+  display: grid; place-items: center; width: 32px; height: 32px;
+  border-radius: 50%; background: #eaf1f8; color: var(--app-blue);
+  font-size: .75rem; font-weight: 800;
+}
+.selected-file { color: #64748b; overflow-wrap: anywhere; }
+.btn-primary { background: var(--app-blue); border-color: var(--app-blue); }
+.btn-primary:hover { background: var(--app-blue-dark); border-color: var(--app-blue-dark); }
+.search-input { max-width: 320px; }
+.result-table-wrap { max-height: 560px; border: 1px solid #e5eaf0; border-radius: 9px; }
+.result-table-wrap thead { position: sticky; top: 0; z-index: 1; }
+.result-table-wrap th { background: #edf3f8; color: #294563; white-space: nowrap; }
+.result-table-wrap td { white-space: nowrap; max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+.stat-card { background: #f5f8fb; border: 1px solid #e7edf3; border-radius: 10px; padding: 12px 14px; }
+.stat-value { font-size: 1.15rem; font-weight: 750; color: var(--app-blue); }
+.stat-label { font-size: .75rem; color: #64748b; }
+code { color: #a33c63; }
+@media (max-width: 575.98px) {
+  main.container { padding-left: 14px; padding-right: 14px; }
+  .search-input { max-width: none; }
+}
+
+/* Confinar tabelas largas ao card, inclusive em flex/grid Bootstrap. */
+main.container, main .row > *, .card, .card-body { min-width: 0; }
+.card { max-width: 100%; }
+.result-table-wrap { display:block; width:100%; max-width:100%; min-width:0; overflow:auto; max-height:560px; }
+.result-table-wrap table { width:max-content; min-width:100%; margin-bottom:0; }
+.result-table-wrap th, .result-table-wrap td { white-space:nowrap; }
+
+/* Limita as tabelas largas à largura do card. */
+.card, .card-body, .row > [class*="col-"] { min-width: 0; }
+.result-table-wrap { display: block; width: 100%; max-width: 100%; overflow: auto; }
+.result-table-wrap table { width: max-content; min-width: 100%; }
