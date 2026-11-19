@@ -1,6 +1,17 @@
-# SIAPE | Formatador + Conferência POLARE (V4)
+# SIAPE | Formatador + Conferência POLARE 
 
-Projeto estático para uso local ou GitHub Pages. A conferência é específica da Universidade de Brasília.
+Projeto estático para uso local ou GitHub Pages. 
+
+**A conferência SIAPE/POLARE é específica para o contexto da Universidade de Brasília (UnB).**
+
+
+### Tratamento dos campos de data
+
+- O Formatador SIAPE realiza a leitura e a organização dos dados conforme as posições e definições dos campos presentes no arquivo de layout (REF.gz).
+**Os campos que representam datas são preservados como texto**, mantendo sua representação original, sem conversão automática para formatos de data do Excel ou de outros programas.
+- Por exemplo, uma data no formato `AAAAMMDD`, como `20261119`, será exportada com esse mesmo conteúdo, sem conversão automática para `19/11/2026`.
+- Essa abordagem evita interpretações incorretas e preserva a integridade dos dados originais.
+- Caso necessário, o usuário poderá converter esses campos posteriormente, conforme a documentação do layout e as necessidades de sua análise.
 
 ## Estrutura
 
@@ -25,14 +36,15 @@ A transferência utiliza `sessionStorage`, apagando os dados transferidos assim 
 
 ## Bases auxiliares
 
-O `.gitignore` exclui todos os `.csv` e `.py`, conforme solicitado. `bases.js` permanece versionado e contém uma cópia dos dados auxiliares, portanto **revise seu conteúdo antes de publicar**. Para atualizar, execute `python dados_auxiliares/atualizar_bases.py` após substituir os CSVs. Os CSVs não precisam ser publicados.
-
-Bibliotecas Bootstrap, Pako e SheetJS usam CDN. O processamento ocorre no navegador.
+O `.gitignore` exclui todos os `.csv` e `.py`. O arquivo `bases.js` permanece versionado e contém uma cópia dos dados auxiliares, portanto **revise seu conteúdo antes de publicar**. Para atualizar, execute `python dados_auxiliares/atualizar_bases.py` após substituir os CSVs. Os CSVs não precisam ser publicados.
 
 
-## V5 — Controles de recolhimento
+## Bibliotecas utilizadas
+
+- Bibliotecas Bootstrap, Pako e SheetJS foram inclusas na pasta `libs` para funcionar localmente.
+- A pasta `libs/` contém orientações para migrar as bibliotecas para arquivos locais; **os CDNs permanecem ativos nesta V5** até que as versões exatas sejam obtidas.
+
+## Controles de recolhimento
 
 - Na página inicial, o botão Recolher/Expandir aparece somente depois de os resultados ficarem visíveis.
 - Na conferência, o botão aparece somente depois da execução do batimento e recolhe automaticamente o formulário de nomes.
-- As regras de processamento e exportação da V4 foram mantidas.
-- A pasta `libs/` contém orientações para migrar as bibliotecas para arquivos locais; **os CDNs permanecem ativos nesta V5** até que as versões exatas sejam obtidas.
